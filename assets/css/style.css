@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Slackey');
+@font-face {
+    font-family: 'Pokemon';
+    src: url(./Pokemon\ Solid.ttf);
+}
+
+h1 {
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    font-family: 'Pokemon','Slackey';
+    font-size: 5em;
+    letter-spacing: .1em;
+    /* top: -5rem; */
+    /* position: relative; */
+    transform-origin: center;
+    color: rgb(255,203,6);
+    text-shadow: .05em .05em 2px rgb(36,105,189), -.05em -.05em 2px rgb(36,105,189), -.05em .05em 2px rgb(36,105,189), .05em -.05em 2px rgb(36,105,189);}
+h1::first-letter {
+    font-size: 1.3em;
+    letter-spacing: 0;
+}
+
+#roundCounter {
+    background: skyblue;
+    width: 20%;
+    padding: 1em;
+    text-align: center;
+}
+h2 { 
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 3em;
+}
+
+.countdown {
+animation: count 200ms ease-in-out;
+}
+@keyframes count {
+    0%,100% {transform: scale(1);color: black}
+    50% {transform: scale(1.4); color: red;}
+}
+
+#currentWord {
+    width: 400px;
+    height: 100px;
+    background: pink;
+    letter-spacing: .2em;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#incorrect {
+    font-size: 2em;
+    letter-spacing: .2em;
+    width: 30%;
+    height: 200px;
+    object-fit: contain;
+    background-color: aquamarine;
+}
