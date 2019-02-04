@@ -86,19 +86,15 @@ animation: count 200ms ease-in-out;
     margin: 3em auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .hidden {
     display: none;
 }
-.img-container {
-    position: relative;
-    margin: 0 auto;
-}
 .pokemon {
     position: absolute;
-    transition-duration: 1.5s;
+    left: 40%;
 }
 
 #silhouette {
