@@ -111,12 +111,7 @@ const game = {
                     game.wordOutput.innerHTML = '';
                     game.incorrect.innerHTML = '';
                     for (let i = 0; i < game.currentWord.length; i++) {
-                        let x = document.createElement('span');
-                        let t = document.createTextNode(' _ ');
-                        x.appendChild(t);
-                        x.setAttribute('id', 'char' + i);
-                        x.setAttribute('class', 'blanks')
-                        game.wordOutput.appendChild(x);
+                        game.wordOutput.innerHTML += `<span id="char${i}" class="blanks"> _ </span>`
                     }
                 }
             }, 1000);
