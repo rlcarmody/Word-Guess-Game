@@ -4,7 +4,7 @@
     src: url(./Pokemon\ Solid.ttf);
 }
 body {
-    font-family: 'Pokemon','Slackey';
+    font-family: 'Slackey';
     background: skyblue;
 }
 h1, #jumbo {
@@ -15,6 +15,7 @@ h1, #jumbo {
                  -.05em .05em 0 rgb(36,105,189), .05em 
                  -.05em 0 rgb(36,105,189);
     text-align: center;
+    font-family: 'Pokemon','Slackey';
 }
 h1 {
     width: 90%;
@@ -29,19 +30,33 @@ h1::first-letter {
 
 #jumbo {
     position: fixed;
+    box-sizing: border-box;
     top: 0;
     padding-top: 15%;
-    margin: 0 auto;
+    margin: 0;
     width: 100vw;
     height: 100vh;
+    background-color: rgba(0,0,0,.5);
 }
 h1, h2, h3 {
     margin: 20px;
+}
+#jumbo {
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    padding-top: 15%;
+    left:0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.7);
 }
 #roundCounter {
     width: 20%;
     padding: 1em;
     text-align: center;
+    border: 1px solid black;
 }
 h2 { 
     font-size: 2em;
@@ -67,6 +82,7 @@ animation: count 200ms ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid black;
 }
 
 #incorrect {
@@ -75,9 +91,17 @@ animation: count 200ms ease-in-out;
     width: 30%;
     height: 200px;
     object-fit: contain;
+    border: 1px solid black;
 }
 .wrapper {
     position: relative;
+    background-color: aliceblue;
+    width: 90vw;
+    margin: 3em auto;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px -4px rgba(0,0,0.3)
 }
 
 .hidden {
@@ -93,4 +117,15 @@ animation: count 200ms ease-in-out;
 
 #silhouette {
     z-index: 1;
+}
+.guesses {
+    display: flex;
+    flex-direction: column;
+}
+table, tr, td {
+    font-size: 1.5em;
+    padding: 10px;
+    width: 25%;
+    border: 1px solid black;
+    text-align: center;
 }

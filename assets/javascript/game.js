@@ -93,7 +93,7 @@ const game = {
             game.jumbo.classList.remove('hidden')
             let timer = setInterval(() => {
                 countDown -= 1;
-                game.jumbo.innerHTML = `<h2>Next Round in:</h2><h3 class="countdown">${countDown}</h3>`;
+                game.jumbo.innerHTML = `<h2>Round ${game.round+1}</h2><h3 class="countdown">${countDown}</h3>`;
                 if (countDown < 1) {
                     clearInterval(timer);
                     game.jumbo.setAttribute('class', 'hidden')
@@ -123,7 +123,7 @@ const game = {
     play: (keypress) => {
         if (!game.gameStart) {
             game.gameStart = true;
-            document.getElementById("instructions").style.display = "none";
+            document.getElementById('instructions').style.display = 'none';
             game.roundStart();
         } else {
             let choice = keypress.key.toLowerCase();
