@@ -89,6 +89,7 @@ const game = {
     jumbo: document.getElementById('jumbo'),
     imageMasked: document.getElementById('silhouette'),
     imageUnmasked: document.getElementById('revealed'),
+    imgContainer: document.getElementById('img-container'),
     roundStart: () => {
         if (game.round < 10) {
             let countDown = 6;
@@ -112,10 +113,11 @@ const game = {
                     game.roundBox.innerHTML = `<h2>Round</h2><h3>${game.round}</h3>`;
                     game.wordOutput.innerHTML = '';
                     game.incorrect.innerHTML = '';
-                    game.imageMasked.style.transitionDuration = 'none';
                     game.imageMasked.style.opacity = 1;
                     game.imageMasked.src = game.pokemon[game.currentWordIndex].silhouette;
                     game.imageUnmasked.src = game.pokemon[game.currentWordIndex].revealed;
+                    game.imageMasked.classList.remove('hidden');
+                    game.imageUnmasked.classList.add('hidden');
                     for (let i = 0; i < game.currentWord.length; i++) {
                         game.wordOutput.innerHTML += `<span id="char${i}" class="blanks"> _ </span>`
                     }
@@ -159,8 +161,8 @@ const game = {
     },
     status: () => {
         if (game.guessesLeft === 0) {
-            Object.assign(game.imageMasked.style,{transitionDuration: 1.5+'s',opacity: 0});
-            // game.imageMasked.style.opacity = 0;
+            game.imageUnmasked.classList.remove('hidden');
+            game.imageMasked.style.opacity = 0;
             game.losses++;
             game.lossesTable.innerHTML = game.losses;
             game.roundStart();
@@ -169,8 +171,8 @@ const game = {
         activeWord = Array.from(activeWord);
         let blank = activeWord.map(e => e.innerHTML);
         if (blank.indexOf(' _ ') === -1) {
-            Object.assign(game.imageMasked.style,{transitionDuration: 1.5+'s',opacity: 0});
-            // game.imageMasked.style.opacity = 0;
+            game.imageUnmasked.classList.remove('hidden');
+            game.imageMasked.style.opacity = 0;
             game.wins++;
             game.winsTable.innerHTML = game.wins;
             game.roundStart();

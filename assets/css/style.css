@@ -94,11 +94,11 @@ animation: count 200ms ease-in-out;
 }
 .pokemon {
     position: absolute;
-    left: 40%;
 }
 
 #silhouette {
     z-index: 1;
+    transition-duration: 1.5s;
 }
 .dashboard {
     width: 25%;
@@ -115,4 +115,9 @@ table, tr, td, th {
     padding: 10px;
     width: 100%;
     text-align: center;
+}
+
+#img-container {
+    width: 250px;
+    height: 250px;
 }
