@@ -87,13 +87,15 @@ const game = {
     lossesTable: document.getElementById('losses'),
     winsTable: document.getElementById('wins'),
     jumbo: document.getElementById('jumbo'),
+    imageMasked: document.getElementById('silhouette'),
+    imageUnmasked: document.getElementById('revealed'),
     roundStart: () => {
         if (game.round < 10) {
             let countDown = 6;
             game.jumbo.classList.remove('hidden')
             let timer = setInterval(() => {
                 countDown -= 1;
-                game.jumbo.innerHTML = `<h2>Round ${game.round+1}</h2><h3 class="countdown">${countDown}</h3>`;
+                game.jumbo.innerHTML = `<h2>Round ${game.round + 1}</h2><h3 class="countdown">${countDown}</h3>`;
                 if (countDown < 1) {
                     clearInterval(timer);
                     game.jumbo.setAttribute('class', 'hidden')
@@ -110,6 +112,9 @@ const game = {
                     game.roundBox.innerHTML = `<h2>Round</h2><h3>${game.round}</h3>`;
                     game.wordOutput.innerHTML = '';
                     game.incorrect.innerHTML = '';
+                    game.imageMasked.src = game.pokemon[game.currentWordIndex].silhouette;
+                    game.imageUnmasked.src = game.pokemon[game.currentWordIndex].revealed;
+
                     for (let i = 0; i < game.currentWord.length; i++) {
                         game.wordOutput.innerHTML += `<span id="char${i}" class="blanks"> _ </span>`
                     }
@@ -123,7 +128,6 @@ const game = {
     play: (keypress) => {
         if (!game.gameStart) {
             game.gameStart = true;
-            document.getElementById('instructions').style.display = 'none';
             game.roundStart();
         } else {
             let choice = keypress.key.toLowerCase();
@@ -149,8 +153,7 @@ const game = {
     },
     wompWomp: (key) => {
         game.guessesLeft--;
-        let wrong = document.createTextNode(key);
-        game.incorrect.appendChild(wrong);
+        game.incorrect.innerHTML += key;
         game.status();
     },
     status: () => {

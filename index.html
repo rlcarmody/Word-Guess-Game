@@ -13,31 +13,34 @@
 <body>
     <h1>PoKéHangMaN</h1>
     <div class="wrapper">
-        <div id="instructions">
-            <h2>Press any key to begin</h2>
+        <div class="dashboard">
+            <div id="currentWord"></div>
+            <div id="incorrect"></div>
         </div>
-        <div id="roundCounter">
-            <h2>Round</h2>
+        <div id="img-container">
+            <img class="pokemon" id="silhouette"/>
+            <img class="pokemon" id="revealed"/>
         </div>
-        <div class="guesses">
-        <div id="currentWord"></div>
-        <div id="incorrect"></div>
+        <div class="dashboard">
+            <div class="tablediv">
+            <table>
+                <tr>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                </tr>
+                <tr>
+                    <td id="wins">0</td>
+                    <td id="losses">0</td>
+                </tr>
+            </table>
+            </div>
+            <div id="roundCounter">
+                <h2>Round</h2>
+            </div>
         </div>
-        <div class="img-container"></div>
-        
-        <table>
-            <tr>
-                <th>Wins</th>
-                <th>Losses</th>
-            </tr>
-            <tr>
-                <td id="wins">0</td>
-                <td id="losses">0</td>
-            </tr>
-        </table>
-        <div id="jumbo" class="hidden"></div>
+        <div id="jumbo">Press any key to begin</div>
     </div>
-    
+
     <script src="./assets/javascript/game.js"></script>
 </body>
 

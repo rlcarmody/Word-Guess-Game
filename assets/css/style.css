@@ -18,7 +18,6 @@ h1, #jumbo {
     font-family: 'Pokemon','Slackey';
 }
 h1 {
-    width: 90%;
     padding: 10px;
     letter-spacing: .1em;
     transform-origin: center;
@@ -28,16 +27,6 @@ h1::first-letter {
     letter-spacing: 0;
 }
 
-#jumbo {
-    position: fixed;
-    box-sizing: border-box;
-    top: 0;
-    padding-top: 15%;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,.5);
-}
 h1, h2, h3 {
     margin: 20px;
 }
@@ -53,10 +42,10 @@ h1, h2, h3 {
     background-color: rgba(0,0,0,.7);
 }
 #roundCounter {
-    width: 20%;
+    box-sizing: border-box;
+    width: 100%;
     padding: 1em;
     text-align: center;
-    border: 1px solid black;
 }
 h2 { 
     font-size: 2em;
@@ -70,38 +59,34 @@ h3 {
 animation: count 200ms ease-in-out;
 }
 @keyframes count {
-    0%,100% {transform: scale(1);color: black}
+    0%,100% {transform: scale(1);color: rgb(255,203,6);}
     50% {transform: scale(1.4); color: red;}
 }
 
 #currentWord {
-    width: 400px;
-    height: 100px;
+    width: 100%;
+    height: 50%;
     letter-spacing: .2em;
     font-size: 2em;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
 }
 
 #incorrect {
     font-size: 2em;
     letter-spacing: .2em;
-    width: 30%;
-    height: 200px;
+    width: 100%;
+    height: 50%;
     object-fit: contain;
-    border: 1px solid black;
 }
 .wrapper {
     position: relative;
-    background-color: aliceblue;
     width: 90vw;
     margin: 3em auto;
     display: flex;
     flex-wrap: wrap;
-    border-radius: 10px;
-    box-shadow: 3px 3px 10px -4px rgba(0,0,0.3)
+    justify-content: space-between;
 }
 
 .hidden {
@@ -109,6 +94,7 @@ animation: count 200ms ease-in-out;
 }
 .img-container {
     position: relative;
+    margin: 0 auto;
 }
 .pokemon {
     position: absolute;
@@ -118,14 +104,19 @@ animation: count 200ms ease-in-out;
 #silhouette {
     z-index: 1;
 }
-.guesses {
+.dashboard {
+    width: 25%;
     display: flex;
     flex-direction: column;
-}
-table, tr, td {
-    font-size: 1.5em;
     padding: 10px;
-    width: 25%;
-    border: 1px solid black;
+    background-color: aliceblue;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 3px 3px 10px -4px rgba(0,0,0.3);
+}
+table, tr, td, th {
+    font-size: 1.25em;
+    padding: 10px;
+    width: 100%;
     text-align: center;
 }
