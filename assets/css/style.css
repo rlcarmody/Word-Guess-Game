@@ -3,27 +3,42 @@
     font-family: 'Pokemon';
     src: url(./Pokemon\ Solid.ttf);
 }
-
+body {
+    font-family: 'Pokemon','Slackey';
+    background: skyblue;
+}
+h1, #jumbo {
+    font-size: 5em;
+    color: rgb(255,203,6);
+    text-shadow: .05em .05em 0 rgb(36,105,189),
+                 -.05em -.05em 0 rgb(36,105,189), 
+                 -.05em .05em 0 rgb(36,105,189), .05em 
+                 -.05em 0 rgb(36,105,189);
+    text-align: center;
+}
 h1 {
     width: 90%;
     padding: 10px;
-    margin: 0 auto 30px auto;
-    text-align: center;
-    font-family: 'Pokemon','Slackey';
-    font-size: 5em;
     letter-spacing: .1em;
-    /* top: -5rem; */
-    /* position: relative; */
     transform-origin: center;
-    color: rgb(255,203,6);
-    text-shadow: .05em .05em 2px rgb(36,105,189), -.05em -.05em 2px rgb(36,105,189), -.05em .05em 2px rgb(36,105,189), .05em -.05em 2px rgb(36,105,189);}
+}
 h1::first-letter {
     font-size: 1.3em;
     letter-spacing: 0;
 }
 
+#jumbo {
+    position: fixed;
+    top: 0;
+    padding-top: 15%;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+}
+h1, h2, h3 {
+    margin: 20px;
+}
 #roundCounter {
-    background: skyblue;
     width: 20%;
     padding: 1em;
     text-align: center;
@@ -47,7 +62,6 @@ animation: count 200ms ease-in-out;
 #currentWord {
     width: 400px;
     height: 100px;
-    background: pink;
     letter-spacing: .2em;
     font-size: 2em;
     display: flex;
@@ -61,5 +75,22 @@ animation: count 200ms ease-in-out;
     width: 30%;
     height: 200px;
     object-fit: contain;
-    background-color: aquamarine;
+}
+.wrapper {
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+.img-container {
+    position: relative;
+}
+.pokemon {
+    position: absolute;
+    transition-duration: 1.5s;
+}
+
+#silhouette {
+    z-index: 1;
 }

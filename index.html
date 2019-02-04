@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,34 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Pokéhangman</title>
 </head>
+
 <body>
     <h1>PoKéHangMaN</h1>
-    <div id="instructions"><h2>Press any key to begin</h2></div>
-    <div id="roundCounter"><h2>Round</h2></div>
-    <div id="currentWord"></div>
-    <div id="incorrect"></div>
-    <button onclick="game.roundStart()">ClickMe</button>
+    <div class="wrapper">
+        <div id="instructions">
+            <h2>Press any key to begin</h2>
+        </div>
+        <div id="roundCounter">
+            <h2>Round</h2>
+        </div>
+        <div id="currentWord"></div>
+        <div class="img-container">
+        </div>
+        <div id="incorrect"></div>
+        <table>
+            <tr>
+                <th>Wins</th>
+                <th>Losses</th>
+            </tr>
+            <tr>
+                <td id="wins">0</td>
+                <td id="losses">0</td>
+            </tr>
+        </table>
+        <div id="jumbo" class="hidden"></div>
+    </div>
+    
     <script src="./assets/javascript/game.js"></script>
 </body>
+
 </html>
