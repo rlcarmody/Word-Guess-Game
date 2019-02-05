@@ -6,10 +6,6 @@ document.onkeyup = function (event) {
     game.play(event);
 }
 
-
-//object to store game variables and methods
-//gamestats object with 'global' variables
-
 const game = {
     gameStart: false,
     wins: 0,
@@ -24,61 +20,61 @@ const game = {
         name: 'Abomasnow',
         silhouette: './assets/images/img0-s.png',
         revealed: './assets/images/img0.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio0.mp3'
     },
     {
         name: 'Absol',
         silhouette: './assets/images/img01-s.png',
         revealed: './assets/images/img01.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio01.mp3'
     },
     {
         name: 'Aerodactyl',
         silhouette: './assets/images/img02-s.png',
         revealed: './assets/images/img02.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio02.mp3'
     },
     {
         name: 'Zygarde',
         silhouette: './assets/images/img03-s.png',
         revealed: './assets/images/img03.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio03.mp3'
     },
     {
         name: 'Pikachu',
         silhouette: './assets/images/img04-s.png',
         revealed: './assets/images/img04.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio04.mp3'
     },
     {
         name: 'Bulbasaur',
         silhouette: './assets/images/img05-s.png',
         revealed: './assets/images/img05.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio05.mp3'
     },
     {
         name: 'Shuckle',
         silhouette: './assets/images/img06-s.png',
         revealed: './assets/images/img06.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio06.mp3'
     },
     {
         name: 'Morelull',
         silhouette: './assets/images/img07-s.png',
         revealed: './assets/images/img07.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio07.mp3'
     },
     {
         name: 'Shiinotic',
         silhouette: './assets/images/img08-s.png',
         revealed: './assets/images/img08.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio08.mp3'
     },
     {
         name: 'Guzzlord',
         silhouette: './assets/images/img09-s.png',
         revealed: './assets/images/img09.png',
-        sound: './assets/sound/'
+        sound: './assets/sound/audio09.mp3'
     },
     ],
     roundBox: document.getElementById('roundCounter'),
@@ -90,6 +86,7 @@ const game = {
     imageMasked: document.getElementById('silhouette'),
     imageUnmasked: document.getElementById('revealed'),
     imgContainer: document.getElementById('img-container'),
+    audio: document.getElementById('sound'),
     roundStart: () => {
         if (game.round < 10) {
             let countDown = 6;
@@ -173,6 +170,7 @@ const game = {
         if (blank.indexOf(' _ ') === -1) {
             game.imageUnmasked.classList.remove('hidden');
             game.imageMasked.style.opacity = 0;
+            game.audio.src = game.pokemon[game.currentWordIndex].sound;
             game.wins++;
             game.winsTable.innerHTML = game.wins;
             game.roundStart();
