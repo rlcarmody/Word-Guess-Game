@@ -79,6 +79,7 @@ const game = {
     ],
     roundBox: document.getElementById('roundCounter'),
     wordOutput: document.getElementById('currentWord'),
+    // incorrect: document.getElementsByClassName('pokeball'),
     incorrect: document.getElementById('incorrect'),
     lossesTable: document.getElementById('losses'),
     winsTable: document.getElementById('wins'),
@@ -109,7 +110,9 @@ const game = {
                     game.currentWordIndex = index;
                     game.roundBox.innerHTML = `<h2>Round</h2><h3>${game.round}</h3>`;
                     game.wordOutput.innerHTML = '';
-                    game.incorrect.innerHTML = '';
+                    // game.incorrect = Array.from(game.incorrect)
+                    // game.incorrect.forEach(e => { e.classList.add('pokeball')});
+                    game.incorrect.textContent = ''
                     game.imageMasked.style.opacity = 1;
                     game.imageMasked.src = game.pokemon[game.currentWordIndex].silhouette;
                     game.imageUnmasked.src = game.pokemon[game.currentWordIndex].revealed;
@@ -153,7 +156,7 @@ const game = {
     },
     wompWomp: (key) => {
         game.guessesLeft--;
-        game.incorrect.innerHTML += key;
+        game.incorrect.textContent += key;
         game.status();
     },
     status: () => {
@@ -162,7 +165,7 @@ const game = {
             game.imageMasked.style.opacity = 0;
             game.losses++;
             game.lossesTable.innerHTML = game.losses;
-            game.roundStart();
+            setTimeout(game.roundStart,2000) ;
         }
         let activeWord = document.querySelectorAll('.blanks');
         activeWord = Array.from(activeWord);
@@ -173,7 +176,7 @@ const game = {
             game.audio.src = game.pokemon[game.currentWordIndex].sound;
             game.wins++;
             game.winsTable.innerHTML = game.wins;
-            game.roundStart();
+            setTimeout(game.roundStart,2000);
         }
     }
 }

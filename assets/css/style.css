@@ -34,7 +34,7 @@ h1, h2, h3 {
     position: fixed;
     box-sizing: border-box;
     top: 0;
-    padding-top: 25%;
+    padding-top: 20%;
     left:0;
     margin: 0;
     width: 100vw;
@@ -60,7 +60,7 @@ animation: count 200ms ease-in-out;
 }
 @keyframes count {
     0%,100% {transform: scale(1);color: rgb(255,203,6);}
-    50% {transform: scale(1.4); color: red;}
+    50% {transform: scale(1.4); color: rgb(237, 28, 36);}
 }
 
 #currentWord {
@@ -106,6 +106,7 @@ animation: count 200ms ease-in-out;
     flex-direction: column;
     padding: 10px;
     background-color: aliceblue;
+    border: 10px solid red;
     border-radius: 10px;
     align-items: center;
     box-shadow: 3px 3px 10px -4px rgba(0,0,0.3);
@@ -120,4 +121,10 @@ table, tr, td, th {
 #img-container {
     width: 250px;
     height: 250px;
+}
+
+.pokeball::after {
+    content: url(../images/Pokeball.svg);
+    width: 10px;
+    height: 10px;
 }
