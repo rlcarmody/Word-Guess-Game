@@ -1,6 +1,5 @@
 document.onkeyup = function (event) {
     if (game.gameStart && !game.validChars.test(event.key)) {
-        alert('Please choose a letter');
         return
     }
     game.play(event);
@@ -79,8 +78,8 @@ const game = {
     ],
     roundBox: document.getElementById('roundCounter'),
     wordOutput: document.getElementById('currentWord'),
-    // incorrect: document.getElementsByClassName('pokeball'),
-    incorrect: document.getElementById('incorrect'),
+    incorrect: document.getElementsByClassName('pokeball'),
+    // incorrect: document.getElementById('incorrect'),
     lossesTable: document.getElementById('losses'),
     winsTable: document.getElementById('wins'),
     jumbo: document.getElementById('jumbo'),
@@ -88,6 +87,7 @@ const game = {
     imageUnmasked: document.getElementById('revealed'),
     imgContainer: document.getElementById('img-container'),
     audio: document.getElementById('sound'),
+    revealName: document.getElementById('revealname'),
     roundStart: () => {
         if (game.round < 10) {
             let countDown = 6;
@@ -110,14 +110,15 @@ const game = {
                     game.currentWordIndex = index;
                     game.roundBox.innerHTML = `<h2>Round</h2><h3>${game.round}</h3>`;
                     game.wordOutput.innerHTML = '';
-                    // game.incorrect = Array.from(game.incorrect)
-                    // game.incorrect.forEach(e => { e.classList.add('pokeball')});
-                    game.incorrect.textContent = ''
+                    game.incorrect = Array.from(game.incorrect)
+                    game.incorrect.forEach(e => { e.setAttribute('empty', 'true'); e.textContent = ''});
+                    // game.incorrect.textContent = ''
                     game.imageMasked.style.opacity = 1;
                     game.imageMasked.src = game.pokemon[game.currentWordIndex].silhouette;
                     game.imageUnmasked.src = game.pokemon[game.currentWordIndex].revealed;
                     game.imageMasked.classList.remove('hidden');
                     game.imageUnmasked.classList.add('hidden');
+                    game.revealName.textContent = '';
                     for (let i = 0; i < game.currentWord.length; i++) {
                         game.wordOutput.innerHTML += `<span id="char${i}" class="blanks"> _ </span>`
                     }
@@ -156,13 +157,16 @@ const game = {
     },
     wompWomp: (key) => {
         game.guessesLeft--;
-        game.incorrect.textContent += key;
+        // game.incorrect.textContent += key;
+        game.incorrect[game.guessesLeft].textContent = key;
+        game.incorrect[game.guessesLeft].setAttribute('empty','false')
         game.status();
     },
     status: () => {
         if (game.guessesLeft === 0) {
             game.imageUnmasked.classList.remove('hidden');
             game.imageMasked.style.opacity = 0;
+            game.revealName.textContent = game.pokemon[game.currentWordIndex].name;
             game.losses++;
             game.lossesTable.innerHTML = game.losses;
             setTimeout(game.roundStart,2000) ;
@@ -174,6 +178,7 @@ const game = {
             game.imageUnmasked.classList.remove('hidden');
             game.imageMasked.style.opacity = 0;
             game.audio.src = game.pokemon[game.currentWordIndex].sound;
+            game.revealName.textContent = game.pokemon[game.currentWordIndex].name;
             game.wins++;
             game.winsTable.innerHTML = game.wins;
             setTimeout(game.roundStart,2000);
