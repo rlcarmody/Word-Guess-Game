@@ -5,6 +5,7 @@ document.onkeyup = function (event) {
     game.play(event);
 }
 
+
 const game = {
     gameStart: false,
     wins: 0,
@@ -74,6 +75,12 @@ const game = {
         silhouette: './assets/images/img09-s.png',
         revealed: './assets/images/img09.png',
         sound: './assets/sound/audio09.mp3'
+    },
+    {
+        name: 'Psyduck',
+        silhouette: './assets/images/img10-s.png',
+        revealed: './assets/images/img10.png',
+        sound: './assets/sound/audio10.mp3'
     },
     ],
     roundBox: document.getElementById('roundCounter'),
