@@ -15,7 +15,7 @@ const game = {
     currentWordIndex: -1,
     guessesLeft: 6,
     charsUsed: [],
-    validChars: /[A-z]/,
+    validChars: /^[A-z]$/,
     pokemon: [{
         name: 'Abomasnow',
         silhouette: './assets/images/img0-s.png',
@@ -95,11 +95,11 @@ const game = {
     imgContainer: document.getElementById('img-container'),
     audio: document.getElementById('sound'),
     revealName: document.getElementById('revealname'),
-    roundStart: () => {
+    roundStart: _ => {
         if (game.round < 10) {
             let countDown = 6;
             game.jumbo.classList.remove('hidden')
-            let timer = setInterval(() => {
+            let timer = setInterval(_ => {
                 countDown -= 1;
                 game.jumbo.innerHTML = `<h2>Round ${game.round + 1}</h2><h3 class="countdown">${countDown}</h3>`;
                 if (countDown < 1) {
@@ -118,7 +118,7 @@ const game = {
                     game.roundBox.innerHTML = `<h2>Round</h2><h3>${game.round}</h3>`;
                     game.wordOutput.innerHTML = '';
                     game.incorrect = Array.from(game.incorrect)
-                    game.incorrect.forEach(e => { e.setAttribute('empty', 'true'); e.textContent = ''});
+                    game.incorrect.forEach(e => { e.setAttribute('empty', 'true'); e.textContent = '' });
                     // game.incorrect.textContent = ''
                     game.imageMasked.style.opacity = 1;
                     game.imageMasked.src = game.pokemon[game.currentWordIndex].silhouette;
@@ -166,17 +166,17 @@ const game = {
         game.guessesLeft--;
         // game.incorrect.textContent += key;
         game.incorrect[game.guessesLeft].textContent = key;
-        game.incorrect[game.guessesLeft].setAttribute('empty','false')
+        game.incorrect[game.guessesLeft].setAttribute('empty', 'false')
         game.status();
     },
-    status: () => {
+    status: _ => {
         if (game.guessesLeft === 0) {
             game.imageUnmasked.classList.remove('hidden');
             game.imageMasked.style.opacity = 0;
             game.revealName.textContent = game.pokemon[game.currentWordIndex].name;
             game.losses++;
             game.lossesTable.innerHTML = game.losses;
-            setTimeout(game.roundStart,2000) ;
+            setTimeout(game.roundStart, 2000);
         }
         let activeWord = document.querySelectorAll('.blanks');
         activeWord = Array.from(activeWord);
@@ -188,7 +188,7 @@ const game = {
             game.revealName.textContent = game.pokemon[game.currentWordIndex].name;
             game.wins++;
             game.winsTable.innerHTML = game.wins;
-            setTimeout(game.roundStart,2000);
+            setTimeout(game.roundStart, 2000);
         }
     }
 }
