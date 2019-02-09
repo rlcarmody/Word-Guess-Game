@@ -86,7 +86,6 @@ const game = {
     roundBox: document.getElementById('roundCounter'),
     wordOutput: document.getElementById('currentWord'),
     incorrect: document.getElementsByClassName('pokeball'),
-    // incorrect: document.getElementById('incorrect'),
     lossesTable: document.getElementById('losses'),
     winsTable: document.getElementById('wins'),
     jumbo: document.getElementById('jumbo'),
@@ -119,7 +118,6 @@ const game = {
                     game.wordOutput.innerHTML = '';
                     game.incorrect = Array.from(game.incorrect)
                     game.incorrect.forEach(e => { e.setAttribute('empty', 'true'); e.textContent = '' });
-                    // game.incorrect.textContent = ''
                     game.imageMasked.style.opacity = 1;
                     game.imageMasked.src = game.pokemon[game.currentWordIndex].silhouette;
                     game.imageUnmasked.src = game.pokemon[game.currentWordIndex].revealed;
@@ -164,7 +162,6 @@ const game = {
     },
     wompWomp: (key) => {
         game.guessesLeft--;
-        // game.incorrect.textContent += key;
         game.incorrect[game.guessesLeft].textContent = key;
         game.incorrect[game.guessesLeft].setAttribute('empty', 'false')
         game.status();
